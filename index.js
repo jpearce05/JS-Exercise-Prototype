@@ -116,8 +116,19 @@ console.log(fillCar);
 function Baby(name, age, favoriteToy) {
   this.name = name;
   this.age = age;
+
+  Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
+
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}`;
+}
+
+let baby1 = new Baby('Francis', 1, 'rattle');
+console.log(baby1.play("airplane"));
 
 
 
