@@ -136,10 +136,10 @@ console.log(baby1.play("airplane"));
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. This calls the object. If there is Ojbect associated with "this" it will grab the global window object.  
+  2. The context is important, "this" will bind (implicit binding) to the Object before the (.) dot.  
+  3. The Constructor function is the highest level and "this" sits below it.  Helping to define the parameters.
+  4. If the binding is explicit we can tell "this" to a certain value using call, or bind.   
 */
 
 
