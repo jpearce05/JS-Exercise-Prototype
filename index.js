@@ -40,9 +40,37 @@ Airplane.prototype.land = function () {
 */
 
 function Person(name, age) {
-  
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 
 }
+
+Person.prototype.eat = function (food) {
+  if (this.stomach.length < 10) {
+    this.stomach.push(food);
+  }
+}
+
+Person.prototype.poop = function () {
+  this.stomach = [];
+}
+
+// method call toString - needs to return a string with the name & age
+
+Person.prototype.toString = function () {
+  return `${this.name}, ${this.age}`;
+}
+
+const personOne = new Person('Noah', 21);
+
+console.log(personOne.toString());
+personOne.eat('chicken');
+personOne.eat('steak');
+personOne.eat('pork');
+console.log(personOne.stomach);
+
+
 
 /*
   TASK 2
@@ -58,9 +86,23 @@ function Person(name, age) {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+}
+
+Car.prototype.fueled = function (gallons) {
+  this.tank = gallons + this.tank;
+  return this.tank;
 
 }
+
+const fillCar = new Car('ford', 20);
+
+
+fillCar.fueled(10);
 
 /*
   TASK 3
@@ -69,9 +111,13 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
-
+function Baby(name, age, favoriteToy) {
+  this.name = name;
+  this.age = age;
+  this.favoriteToy = favoriteToy;
 }
+
+
 
 /* 
   TASK 4
