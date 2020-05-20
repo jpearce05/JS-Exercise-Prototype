@@ -93,16 +93,17 @@ function Car(model, milesPerGallon) {
   this.odometer = 0;
 }
 
-Car.prototype.fueled = function (gallons) {
+Car.prototype.fill = function (gallons) {
   this.tank = gallons + this.tank;
   return this.tank;
 
-}
+};
 
-const fillCar = new Car('ford', 20);
+let fillCar = new Car('ford', 20);
 
+console.log(fillCar.fill(10));
+console.log(fillCar);
 
-fillCar.fueled(10);
 
 /*
   TASK 3
@@ -111,6 +112,7 @@ fillCar.fueled(10);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
+
 function Baby(name, age, favoriteToy) {
   this.name = name;
   this.age = age;
